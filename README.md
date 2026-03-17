@@ -44,14 +44,64 @@ cp -r ELI5/skills/eli5 ~/.claude/skills/eli5
 
 Then use it in Claude Code by saying things like "ELI5 this" or "explain this to my manager."
 
-## Running Evaluations
+## Evaluations
 
-You can run the eval suite locally to test the skill yourself.
+### Adding a New Test Case
+
+Test cases are defined in two places: `eli5-workspace/evals.json` and `eli5-workspace/run-evals.sh`.
+
+**Step 1:** Add your test to `evals.json`:
+
+```json
+{
+  "id": 3,
+  "name": "explain-recursion-teenager",
+  "prompt": "Explain recursion like I'm 15",
+  "audience": "Age 15",
+  "assertions": [
+    "Uses social media, gaming, or phone references as analogies",
+    "Tone is casual but not cringey — no 'fellow kids' energy",
+    "Correctly explains the concept of a function calling itself",
+    "Mentions a base case or stopping condition"
+  ]
+}
+```
+
+**Step 2:** Add matching entries in `run-evals.sh`:
+
+```bash
+# Add to the PROMPTS array
+PROMPTS=(
+  ...existing...
+  "Explain recursion like I'm 15"
+)
+
+# Add to the NAMES array
+NAMES=(
+  ...existing...
+  "explain-recursion-teenager"
+)
+
+# Add assertions array (use the next number)
+ASSERTIONS_3=(
+  "Uses social media, gaming, or phone references as analogies"
+  "Tone is casual but not cringey — no 'fellow kids' energy"
+  "Correctly explains the concept of a function calling itself"
+  "Mentions a base case or stopping condition"
+)
+```
+
+Each test case needs:
+- A **prompt** — what the user would say to Claude
+- A **name** — directory-friendly identifier for storing results
+- **Assertions** — specific, verifiable criteria to grade against (4 per test works well)
+
+### Running Evaluations
 
 **Prerequisites:** [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and the skill installed at `~/.claude/skills/eli5/`.
 
 ```bash
-# Run all 3 tests + auto-grade with pass/fail
+# Run all tests + auto-grade with pass/fail
 ./eli5-workspace/run-evals.sh
 
 # Run a single test
@@ -64,38 +114,46 @@ You can run the eval suite locally to test the skill yourself.
 ./eli5-workspace/run-evals.sh --grade-only
 ```
 
-The script runs each test case, then uses Claude to auto-grade every output against predefined assertions. You'll see per-assertion pass/fail results and a summary like:
+The script does three things:
+1. **Runs each prompt** twice — once with the skill, once without (baseline)
+2. **Auto-grades** every output against its assertions using Claude
+3. **Prints a pass rate summary** comparing skill vs baseline
+
+Example output:
 
 ```
+--- Test 1: explain-db-index-age5 ---
+  [with skill]
+    PASS  #1 — No technical jargon present
+    PASS  #2 — Uses book/page analogy and toy/messy room analogy
+    PASS  #3 — Sentences are short and conversational
+    PASS  #4 — Warm, enthusiastic tone with "huuuge", "super duper fast"
+  [baseline]
+    PASS  #1 — No technical jargon found
+    FAIL  #2 — Uses phone book analogy, not child-friendly
+    PASS  #3 — Sentences are generally short
+    FAIL  #4 — Tone is informative but encyclopedic
+
 =========================================
-  PASS RATE SUMMARY — Iteration 2
+  PASS RATE SUMMARY — Iteration 1
 =========================================
-  With Skill:    11/12 passed (91.6%)
-  Without Skill: 4/12 passed (33.3%)
-  Delta:         58.3%
+  With Skill:    10/12 passed (83.3%)
+  Without Skill: 5/12 passed (41.6%)
+  Delta:         41.7%
 =========================================
 ```
 
-Results are saved to `eli5-workspace/iteration-N/` with each run auto-incrementing the iteration number. Each test case produces `grading.txt` files with detailed pass/fail evidence.
+Results are saved to `eli5-workspace/iteration-N/`, auto-incrementing with each run. Each test case produces `grading.txt` files with detailed evidence.
 
-### Test Cases
-
-| # | Prompt | Audience |
-|---|--------|----------|
-| 1 | "ELI5 what a database index is" | Age 5 (default) |
-| 2 | "Explain a typical web application codebase's structure to my manager" | Manager |
-| 3 | "Break down how git merge conflicts work for a 5th grader" | 5th grade |
-
-### Results
+### Current Results
 
 See [eli5-workspace/eval-results.md](eli5-workspace/eval-results.md) for the full evaluation strategy and detailed grading.
 
 | Metric | With Skill | Without Skill | Delta |
 |--------|-----------|---------------|-------|
-| Pass Rate | **91.7%** | 33.3% | +58.3% |
-| Avg Time | 33.0s | 47.4s | -14.4s |
+| Pass Rate | **83.3%** | 41.6% | +41.7% |
 
-The biggest improvement is in audience-specific framing — especially for non-technical audiences like managers (0% baseline to 75% with skill).
+The biggest improvement is in audience-specific framing — especially for non-technical audiences like managers (0% baseline to 50% with skill).
 
 ## Contributing
 
