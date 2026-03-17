@@ -3,21 +3,39 @@
   "evals": [
     {
       "id": 0,
+      "name": "explain-db-index-age5",
       "prompt": "ELI5 what a database index is",
-      "expected_output": "A simple, age-5 friendly explanation using toys/playground analogies, no jargon, short sentences",
-      "files": []
+      "audience": "Age 5 (default)",
+      "assertions": [
+        "Contains no technical jargon (query, B-tree, schema, SQL, optimize, table/column/row in technical sense)",
+        "Uses at least one concrete, child-friendly analogy (toys, animals, playground, picture books)",
+        "Sentences are short and simple, averaging under 15 words per sentence",
+        "Tone is warm, playful, and appropriate for a 5-year-old (not condescending or encyclopedic)"
+      ]
     },
     {
       "id": 1,
-      "prompt": "Explain this codebase's structure to my manager",
-      "expected_output": "A business-focused explanation of the project structure emphasizing impact, decisions, and team implications — no code details",
-      "files": []
+      "name": "explain-codebase-manager",
+      "prompt": "Explain a typical web application codebase's structure to my manager",
+      "audience": "Manager",
+      "assertions": [
+        "Contains no code blocks or inline code formatting — purely prose",
+        "Frames explanation in business terms: mentions impact, decisions, risk, timeline, or team capacity",
+        "Response is under 500 words — concise enough for a busy manager",
+        "Includes at least one actionable recommendation or decision point for the manager"
+      ]
     },
     {
       "id": 2,
+      "name": "explain-git-merge-5th-grader",
       "prompt": "Break down how git merge conflicts work for a 5th grader",
-      "expected_output": "A school-level explanation with concrete analogies, simple vocabulary, step-by-step logic, no jargon",
-      "files": []
+      "audience": "5th grade",
+      "assertions": [
+        "No unexplained advanced git terms (rebase, HEAD, SHA, hash, stage, commit used without a kid-friendly definition)",
+        "Uses a relatable analogy for a 10-11 year old (school project, shared document, group assignment)",
+        "Explanation follows a logical, sequential flow that builds understanding progressively",
+        "Language and vocabulary are appropriate for a 5th grader — not too babyish, not too advanced"
+      ]
     }
   ]
 }

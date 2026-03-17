@@ -51,7 +51,7 @@ You can run the eval suite locally to test the skill yourself.
 **Prerequisites:** [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and the skill installed at `~/.claude/skills/eli5/`.
 
 ```bash
-# Run all 3 tests (with skill + baseline comparison)
+# Run all 3 tests + auto-grade with pass/fail
 ./eli5-workspace/run-evals.sh
 
 # Run a single test
@@ -59,9 +59,24 @@ You can run the eval suite locally to test the skill yourself.
 
 # Skip baseline, only test the skill
 ./eli5-workspace/run-evals.sh --with-skill-only
+
+# Grade existing outputs without re-running tests
+./eli5-workspace/run-evals.sh --grade-only
 ```
 
-Results are saved to `eli5-workspace/iteration-N/` with each run auto-incrementing the iteration number. Each test case produces a `with_skill/` and `without_skill/` output you can compare side by side.
+The script runs each test case, then uses Claude to auto-grade every output against predefined assertions. You'll see per-assertion pass/fail results and a summary like:
+
+```
+=========================================
+  PASS RATE SUMMARY — Iteration 2
+=========================================
+  With Skill:    11/12 passed (91.6%)
+  Without Skill: 4/12 passed (33.3%)
+  Delta:         58.3%
+=========================================
+```
+
+Results are saved to `eli5-workspace/iteration-N/` with each run auto-incrementing the iteration number. Each test case produces `grading.txt` files with detailed pass/fail evidence.
 
 ### Test Cases
 
