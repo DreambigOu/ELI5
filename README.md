@@ -44,9 +44,36 @@ cp -r ELI5/skills/eli5 ~/.claude/skills/eli5
 
 Then use it in Claude Code by saying things like "ELI5 this" or "explain this to my manager."
 
-## Evaluation Results
+## Running Evaluations
 
-Tested across 3 audience types with quantitative assertions. See [eli5-workspace/eval-results.md](eli5-workspace/eval-results.md) for full details.
+You can run the eval suite locally to test the skill yourself.
+
+**Prerequisites:** [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and the skill installed at `~/.claude/skills/eli5/`.
+
+```bash
+# Run all 3 tests (with skill + baseline comparison)
+./eli5-workspace/run-evals.sh
+
+# Run a single test
+./eli5-workspace/run-evals.sh --test=1
+
+# Skip baseline, only test the skill
+./eli5-workspace/run-evals.sh --with-skill-only
+```
+
+Results are saved to `eli5-workspace/iteration-N/` with each run auto-incrementing the iteration number. Each test case produces a `with_skill/` and `without_skill/` output you can compare side by side.
+
+### Test Cases
+
+| # | Prompt | Audience |
+|---|--------|----------|
+| 1 | "ELI5 what a database index is" | Age 5 (default) |
+| 2 | "Explain a typical web application codebase's structure to my manager" | Manager |
+| 3 | "Break down how git merge conflicts work for a 5th grader" | 5th grade |
+
+### Results
+
+See [eli5-workspace/eval-results.md](eli5-workspace/eval-results.md) for the full evaluation strategy and detailed grading.
 
 | Metric | With Skill | Without Skill | Delta |
 |--------|-----------|---------------|-------|
