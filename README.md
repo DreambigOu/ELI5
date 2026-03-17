@@ -4,6 +4,8 @@
 
 Ever needed to explain a technical concept to your manager? Or break down code for a 5th grader? ELI5 makes Claude automatically adjust its explanation style based on who's listening.
 
+Read the full blog post on how this skill was built: [Building an ELI5 Skill for Claude](https://andrewou.pages.dev/posts/building-an-eli5-skill-for-claude/)
+
 ## Supported Audiences
 
 | Category | Examples |
