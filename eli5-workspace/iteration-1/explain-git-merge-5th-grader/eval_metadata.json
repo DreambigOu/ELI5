@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "explain-git-merge-5th-grader",
+  "prompt": "Break down how git merge conflicts work for a 5th grader",
+  "assertions": [
+    {
+      "id": "no-jargon",
+      "text": "No unexplained advanced git terms (rebase, HEAD, SHA, hash, commit used without kid-friendly definition)",
+      "type": "qualitative"
+    },
+    {
+      "id": "uses-analogy",
+      "text": "Uses a relatable analogy for a 10-11 year old (school project, shared Google Doc, group assignment)",
+      "type": "qualitative"
+    },
+    {
+      "id": "step-by-step",
+      "text": "Explanation follows a logical, sequential flow that builds understanding progressively",
+      "type": "qualitative"
+    },
+    {
+      "id": "grade-appropriate",
+      "text": "Language and vocabulary are appropriate for a 5th grader (age 10-11), not too babyish, not too advanced",
+      "type": "qualitative"
+    }
+  ]
+}

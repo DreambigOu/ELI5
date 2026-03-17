@@ -1,0 +1,23 @@
+{
+  "skill_name": "eli5",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "ELI5 what a database index is",
+      "expected_output": "A simple, age-5 friendly explanation using toys/playground analogies, no jargon, short sentences",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Explain this codebase's structure to my manager",
+      "expected_output": "A business-focused explanation of the project structure emphasizing impact, decisions, and team implications — no code details",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Break down how git merge conflicts work for a 5th grader",
+      "expected_output": "A school-level explanation with concrete analogies, simple vocabulary, step-by-step logic, no jargon",
+      "files": []
+    }
+  ]
+}

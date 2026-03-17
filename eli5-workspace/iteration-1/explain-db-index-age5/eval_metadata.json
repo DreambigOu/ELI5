@@ -1,0 +1,27 @@
+{
+  "eval_id": 0,
+  "eval_name": "explain-db-index-age5",
+  "prompt": "ELI5 what a database index is",
+  "assertions": [
+    {
+      "id": "no-jargon",
+      "text": "Contains no technical jargon (query, B-tree, schema, SQL, optimize, table, column, row in technical sense)",
+      "type": "qualitative"
+    },
+    {
+      "id": "uses-analogy",
+      "text": "Uses at least one concrete, child-friendly analogy (e.g., book, toy box, library, playground)",
+      "type": "qualitative"
+    },
+    {
+      "id": "short-sentences",
+      "text": "Sentences are short and simple, average under 15 words per sentence",
+      "type": "qualitative"
+    },
+    {
+      "id": "appropriate-tone",
+      "text": "Tone is warm, playful, and appropriate for a 5-year-old (not condescending)",
+      "type": "qualitative"
+    }
+  ]
+}
