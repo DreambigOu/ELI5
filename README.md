@@ -48,6 +48,8 @@ Then use it in Claude Code by saying things like "ELI5 this" or "explain this to
 
 ## Evaluations
 
+Read the full guide on how the eval system works: [How to Evaluate a Claude Code Skill](https://andrewou.pages.dev/posts/how-to-evaluate-a-claude-code-skill/)
+
 ### Adding a New Test Case
 
 Test cases are defined in `eli5-workspace/evals.json`. Add a new entry to the `evals` array:
