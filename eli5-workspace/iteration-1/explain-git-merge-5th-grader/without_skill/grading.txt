@@ -1,4 +1,0 @@
-FAIL|1|"stage" and "commit" used without kid-friendly definitions
-PASS|2|Shared notebook and story-writing analogy is relatable for 10-11 year olds
-PASS|3|Builds from Git→Branch→Merge→Conflict→Fix in logical sequence
-PASS|4|Vocabulary is appropriately accessible without being condescending

@@ -50,9 +50,7 @@ Then use it in Claude Code by saying things like "ELI5 this" or "explain this to
 
 ### Adding a New Test Case
 
-Test cases are defined in two places: `eli5-workspace/evals.json` and `eli5-workspace/run-evals.sh`.
-
-**Step 1:** Add your test to `evals.json`:
+Test cases are defined in `eli5-workspace/evals.json`. Add a new entry to the `evals` array:
 
 ```json
 {
@@ -69,30 +67,6 @@ Test cases are defined in two places: `eli5-workspace/evals.json` and `eli5-work
 }
 ```
 
-**Step 2:** Add matching entries in `run-evals.sh`:
-
-```bash
-# Add to the PROMPTS array
-PROMPTS=(
-  ...existing...
-  "Explain recursion like I'm 15"
-)
-
-# Add to the NAMES array
-NAMES=(
-  ...existing...
-  "explain-recursion-teenager"
-)
-
-# Add assertions array (use the next number)
-ASSERTIONS_3=(
-  "Uses social media, gaming, or phone references as analogies"
-  "Tone is casual but not cringey — no 'fellow kids' energy"
-  "Correctly explains the concept of a function calling itself"
-  "Mentions a base case or stopping condition"
-)
-```
-
 Each test case needs:
 - A **prompt** — what the user would say to Claude
 - A **name** — directory-friendly identifier for storing results
@@ -104,16 +78,16 @@ Each test case needs:
 
 ```bash
 # Run all tests + auto-grade with pass/fail
-./eli5-workspace/run-evals.sh
+python eli5-workspace/run-evals.py
 
 # Run a single test
-./eli5-workspace/run-evals.sh --test=1
+python eli5-workspace/run-evals.py --test=1
 
 # Skip baseline, only test the skill
-./eli5-workspace/run-evals.sh --with-skill-only
+python eli5-workspace/run-evals.py --with-skill-only
 
 # Grade existing outputs without re-running tests
-./eli5-workspace/run-evals.sh --grade-only
+python eli5-workspace/run-evals.py --grade-only
 ```
 
 The script does three things:

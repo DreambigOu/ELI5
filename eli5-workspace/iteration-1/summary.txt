@@ -1,5 +1,0 @@
-ELI5 Eval Summary — Iteration 1
-Date: Mon Mar 16 23:19:21 EDT 2026
-
-With Skill:    10/12 passed
-Without Skill: 5/12 passed

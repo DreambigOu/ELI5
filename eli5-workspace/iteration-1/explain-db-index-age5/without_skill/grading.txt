@@ -1,4 +1,0 @@
-PASS|1|No technical jargon found; uses plain language throughout
-FAIL|2|Uses phone book analogy, not a child-friendly analogy like toys, animals, playground, or picture books
-PASS|3|Sentences are generally short and simple, averaging well under 15 words
-FAIL|4|Tone is informative but encyclopedic/adult; not warm or playful enough for a 5-year-old
