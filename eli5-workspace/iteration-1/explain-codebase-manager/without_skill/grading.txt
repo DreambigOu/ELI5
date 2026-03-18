@@ -1,0 +1,4 @@
+FAIL|1|Response contains multiple code blocks including a folder structure code block and inline code like `package.json`, `frontend/`, `.env`
+FAIL|2|Explanation uses technical terms and developer analogies; lacks business impact, decisions, risk, or timeline framing
+FAIL|3|Response is far over 500 words — approximately 750+ words
+FAIL|4|No actionable recommendations or decision points for a manager are included

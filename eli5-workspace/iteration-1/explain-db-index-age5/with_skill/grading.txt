@@ -1,0 +1,4 @@
+PASS|1|No technical jargon present; only plain language used throughout
+PASS|2|Uses book/page analogy and toy/messy room analogy, both child-friendly
+PASS|3|Sentences are short and conversational, well under 15 words average
+PASS|4|Warm, enthusiastic tone with "huuuge", "super duper fast", "So much faster!" — playful and age-appropriate

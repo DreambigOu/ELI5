@@ -1,0 +1,27 @@
+{
+  "eval_id": 0,
+  "eval_name": "explain-db-index-age5",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Contains no technical jargon (query, B-tree, schema, SQL, optimize, table, column, row in technical sense)",
+      "passed": true,
+      "evidence": "No technical database terms used. Uses only everyday words like 'book', 'pages', 'list', 'puppies', 'toy', 'room'."
+    },
+    {
+      "text": "Uses at least one concrete, child-friendly analogy",
+      "passed": true,
+      "evidence": "Uses two strong analogies: (1) a big book with a table of contents for finding puppies, (2) finding a toy in an organized vs messy room."
+    },
+    {
+      "text": "Sentences are short and simple, average under 15 words per sentence",
+      "passed": true,
+      "evidence": "Sentences are consistently short: 'That would take forever, right?', 'Your arms would get so tired!', 'So much faster!'"
+    },
+    {
+      "text": "Tone is warm, playful, and appropriate for a 5-year-old (not condescending)",
+      "passed": true,
+      "evidence": "Opens with 'Oh, this is a cool one!' Uses 'huuuge', 'super duper fast', exclamation marks. Feels like a favorite teacher explaining."
+    }
+  ]
+}

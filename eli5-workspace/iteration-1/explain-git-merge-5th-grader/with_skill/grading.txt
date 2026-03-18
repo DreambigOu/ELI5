@@ -1,0 +1,4 @@
+PASS|1|Only uses "Git" and "file/line/version" concepts; no unexplained terms like rebase, HEAD, SHA, or stage
+PASS|2|Group poster project analogy with teacher mediating is relatable for 10-11 year olds
+PASS|3|Builds from concept → analogy → step-by-step → visual example → resolution → takeaway
+PASS|4|Vocabulary like "divider," "markers," "version" is age-appropriate; not condescending or overly technical

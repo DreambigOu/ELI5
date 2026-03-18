@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "explain-git-merge-5th-grader",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "No unexplained advanced git terms (rebase, HEAD, SHA, hash, commit used without kid-friendly definition)",
+      "passed": true,
+      "evidence": "All git concepts are explained in plain language. 'Git is a tool that helps people work on the same project together, kind of like a shared notebook.' No unexplained jargon."
+    },
+    {
+      "text": "Uses a relatable analogy for a 10-11 year old (school project, shared Google Doc, group assignment)",
+      "passed": true,
+      "evidence": "Uses group project/poster analogy and shared story writing analogy — both directly relatable to 5th graders."
+    },
+    {
+      "text": "Explanation follows a logical, sequential flow that builds understanding progressively",
+      "passed": true,
+      "evidence": "Clear progression: what is a conflict → analogy → how it happens step by step → what it looks like → how to fix it → why it matters."
+    },
+    {
+      "text": "Language and vocabulary are appropriate for a 5th grader (age 10-11), not too babyish, not too advanced",
+      "passed": true,
+      "evidence": "Perfect grade level. Uses 'version', 'resolved' (appropriate for 5th grade) without being overly simple. Doesn't say 'super duper' or use baby talk."
+    }
+  ]
+}
